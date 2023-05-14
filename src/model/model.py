@@ -1,7 +1,11 @@
 from sklearn.datasets import load_diabetes
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
-from ..utils.load_and_save import save_model
+import os
+import sys
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from utils.load_and_save import save_model
 
 
 def train_model():

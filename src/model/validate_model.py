@@ -1,5 +1,9 @@
 from sklearn.metrics import mean_squared_error
-from ..utils.load_and_save import load_model, load_numpy_array
+import os
+import sys
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from utils.load_and_save import load_model, load_numpy_array
 
 
 def validate_model(model, X_test, y_test):
