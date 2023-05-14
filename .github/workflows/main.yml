@@ -24,13 +24,13 @@ jobs:
           pip install -r requirements.txt
       - name: Validate data
         run: |
-          python validate_data.py
+          python src/validate_data.py
       - name: Train model
         run: |
-          python model.py
+          python src/model.py
       - name: Validate model
         run: |
-          python validate_model.py
+          python src/validate_model.py
       - name: Run tests
         run: |
           python -m unittest tests/test_model.py
