@@ -48,26 +48,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          title: Model training failed ⚠️
-          body: |
-            The model training action failed. Please see the logs for more information.
-
-            <details>
-              <summary>Logs</summary>
-
-              ```
-              ${{ job.status }}
-              ```
-
-            </details>
-
-            <details>
-              <summary>Artifacts</summary>
-
-              ```
-              ${{ steps.artifacts.outputs.artifacts }}
-              ```
-
-            </details>
-
-          labels: bug, failed
+          filename: .github/ISSUE_TEMPLATE.md
