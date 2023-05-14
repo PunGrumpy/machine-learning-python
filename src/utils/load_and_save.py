@@ -4,6 +4,8 @@ import os
 
 
 def save_model(model, filepath):
+    if not os.path.exists(os.path.dirname(filepath)):
+        os.makedirs(os.path.dirname(filepath))
     with open(filepath, "wb") as f:
         pickle.dump(model, f)
 
