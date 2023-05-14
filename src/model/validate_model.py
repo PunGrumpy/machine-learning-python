@@ -1,6 +1,5 @@
 from sklearn.metrics import mean_squared_error
-import pickle
-import numpy as np
+from ..utils.load_and_save import load_model, load_numpy_array
 
 
 def validate_model(model, X_test, y_test):
@@ -10,11 +9,10 @@ def validate_model(model, X_test, y_test):
 
 
 def main():
-    with open("models/model.pkl", "rb") as f:
-        model = pickle.load(f)
+    model = load_model("models/model.pkl")
     # load test data
-    X_test = np.load("data/X_test.npy")
-    y_test = np.load("data/y_test.npy")
+    X_test = load_numpy_array("data/X_test.npy")
+    y_test = load_numpy_array("data/y_test.npy")
     mse = validate_model(model, X_test, y_test)
     print(f"Model performance: {mse}")
     if mse > 1.0:  # replace with your own threshold
