@@ -1,7 +1,7 @@
 ---
-title: Someone just pushed
-assignees: PunGrumpy
+title: Model training failed
 labels: bug
+assignees: PunGrumpy
 ---
 
-Someone just pushed, oh no! Here's who did it: {{ payload.sender.login }}.
+The model training action failed. Please see the logs for more information.
