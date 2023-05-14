@@ -15,8 +15,8 @@ def validate_model(model, X_test, y_test):
 def main():
     model = load_model("models/model.pkl")
     # load test data
-    X_test = load_numpy_array("data/X_test.npy")
-    y_test = load_numpy_array("data/y_test.npy")
+    X_test = load_numpy_array("data_raw/X_test.npy")
+    y_test = load_numpy_array("datadata_raw/y_test.npy")
     mse = validate_model(model, X_test, y_test)
     print(f"Model performance: {mse}")
     if mse > 1.0:  # replace with your own threshold
