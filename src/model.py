@@ -2,6 +2,7 @@ from sklearn.datasets import load_diabetes
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 import pickle
+import os
 
 
 def train_model():
@@ -15,6 +16,8 @@ def train_model():
 
 
 def save_model(model, filepath):
+    if not os.path.exists(os.path.dirname(filepath)):
+        os.makedirs(os.path.dirname(filepath))
     with open(filepath, "wb") as f:
         pickle.dump(model, f)
 
