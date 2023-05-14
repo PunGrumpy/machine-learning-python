@@ -46,9 +46,11 @@ jobs:
         if: failure()
         uses: octokit/request-action@v2.x
         with:
-          route: POST /repos/${{ github.repository_owner }}/${{ github.event.repository.name }}/issues
+          route: POST /repos/{owner}/{repo}/issues
           title: 'Model training failed ⚠️'
           body: 'The model training action failed. Please see the logs for more information. ⚠️'
           labels: 'bug'
+          owner: PunGrumpy
+          repo: machine-learning-python
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
