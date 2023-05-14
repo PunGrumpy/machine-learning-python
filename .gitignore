@@ -1,0 +1,14 @@
+# VSCode
+.vscode
+
+# Model
+models
+
+# Cache
+__pycache__
+
+# Logs
+logs
+
+# Data
+data
