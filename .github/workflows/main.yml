@@ -59,13 +59,8 @@ jobs:
           embed-title: 'Model training successful'
           embed-description: 'Model training was successful'
           embed-timestamp: ${{ github.event.head_commit.timestamp }}
-          embed-fields: |
-            {
-              "name": "Model",
-              "value": "model.pkl",
-              "inline": true
-            }
-          embed-footer: |
+          filename: models/model.pkl
+          embed-footer-text: |
             {
               "text": "Model training - by @PunGrumpy"
             }
