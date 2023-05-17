@@ -42,12 +42,32 @@ jobs:
         run: |
           python src/model/validate_model.py
       - name: Archive model
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: model
-          path: model.pkl
+          path: models/model.pkl
       - name: Notify
         if: failure()
         uses: JasonEtco/create-an-issue@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Discord Webhook Action
+        if: success()
+        uses: tsickert/discord-webhook@v5.3.0
+        with:
+          webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          embed-title: 'Model training successful'
+          embed-description: 'Model training was successful'
+          embed-color: '#00ff00'
+          embed-timestamp: true
+          embed-fields: |
+            {
+              "name": "Model",
+              "value": "model.pkl",
+              "inline": true
+            }
+          embed-footer: |
+            {
+              "text": "Model training - by @PunGrumpy"
+            }
+          embed-footer-icon-url: https://avatars.githubusercontent.com/u/108584943?v=4
