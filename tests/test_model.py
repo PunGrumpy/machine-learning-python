@@ -1,44 +1,29 @@
-# tests/test_model.py
-import unittest
-import numpy as np
-from sklearn.datasets import load_diabetes
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
 import sys
 import os
 
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from src.model import train_model, save_model
-from src.validate_model import validate_model
-
-
-class TestModel(unittest.TestCase):
-    def setUp(self):
-        self.X, self.y = load_diabetes(return_X_y=True)
-        self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(
-            self.X, self.y, test_size=0.2, random_state=42
-        )
-        self.model = LinearRegression()
-
-    def test_train_model(self):
-        model, X_test, y_test = train_model()
-        self.assertIsNotNone(model)
-        self.assertIsNotNone(X_test)
-        self.assertIsNotNone(y_test)
-
-    def test_save_model(self):
-        if not os.path.exists("models/"):
-            os.makedirs("models/")
-        save_model(self.model, "models/test_model.pkl")
-        self.assertTrue(os.path.exists("models/test_model.pkl"))
-        os.remove("models/test_model.pkl")
-
-    def test_validate_model(self):
-        self.model.fit(self.X_train, self.y_train)
-        mse = validate_model(self.model, self.X_test, self.y_test)
-        self.assertLess(mse, 3000.0)  # Changed the threshold to 3000
+from src.model.model import train_model
+from src.utils.load_and_save import load_model, save_model
+import numpy as np
 
 
-if __name__ == "__main__":
-    unittest.main()
+def test_train_model():
+    model, X_test, y_test = train_model()
+    assert model is not None, "Model training failed"
+
+
+def test_model_prediction():
+    model, X_test, y_test = train_model()
+    predictions = model.predict(X_test)
+    assert predictions is not None, "Model prediction failed"
+    assert len(predictions) == len(
+        y_test
+    ), "Number of predictions doesn't match with number of test samples"
+
+
+def test_save_and_load_model():
+    model, _, _ = train_model()
+    save_model(model, "models/test_model.pkl")
+    loaded_model = load_model("models/test_model.pkl")
+    assert loaded_model is not None, "Model loading failed"

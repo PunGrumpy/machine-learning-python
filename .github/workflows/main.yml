@@ -41,6 +41,9 @@ jobs:
       - name: Validate model
         run: |
           python src/model/validate_model.py
+      - name: Test model
+        run: |
+          pytest tests/
       - name: Archive model
         uses: actions/upload-artifact@v3
         with:
