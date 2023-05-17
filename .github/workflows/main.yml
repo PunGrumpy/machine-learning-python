@@ -58,7 +58,7 @@ jobs:
           webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
           embed-title: 'Model training successful'
           embed-description: 'Model training was successful'
-          embed-timestamp: true
+          embed-timestamp: ${{ github.event.head_commit.timestamp }}
           embed-fields: |
             {
               "name": "Model",
