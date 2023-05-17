@@ -58,7 +58,6 @@ jobs:
           webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
           embed-title: 'Model training successful'
           embed-description: 'Model training was successful and the model was saved as an artifact. ✨'
-          embed-color: '#00ff00'
           embed-image-url: 'https://www.octo.us/wp-content/uploads/2022/03/MKTG_HealthData_Rob_Hero_2560-x-1280_220321.jpg'
           embed-timestamp: ${{ github.event.head_commit.timestamp }}
           filename: models/model.pkl

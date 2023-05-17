@@ -6,21 +6,22 @@ This repository contains a machine learning project that uses linear regression 
 
 ```bash
 machine-learning-python/
-├── .github/
-│ └── workflows/
-│ └── main.yml
-├── src/
-│ ├── model.py
-│ ├── validate_data.py
-│ └── validate_model.py
-├── tests/
-│ └── test_model.py
-├── data/
-│ ├── raw_data.csv
-│ └── processed_data.csv
-├── models/
-│ └── model.pkl
-└── requirements.txt
+├── .github
+│  └── workflows
+│     ├── main.yml
+├── requirements.txt
+├── src
+│  ├── data
+│  │  ├── create_dataset.py
+│  │  ├── prepare_data.py
+│  │  └── validate_data.py
+│  ├── model
+│  │  ├── model.py
+│  │  └── validate_model.py
+│  └── utils
+│     └── load_and_save.py
+└── tests
+   └── test_model.py
 ```
 
 ## Getting Started
