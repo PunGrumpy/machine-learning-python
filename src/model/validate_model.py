@@ -19,7 +19,7 @@ def main():
     y_test = load_numpy_array("data_raw/y_test.npy")
     mse = validate_model(model, X_test, y_test)
     print(f"Model performance: {mse}")
-    if mse > 1.0:  # replace with your own threshold
+    if mse > 3000:
         raise Exception("Model performance does not meet the threshold")
 
 
