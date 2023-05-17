@@ -31,7 +31,7 @@ machine-learning-python/
 3. Validate the data: `python src/validate_data.py`.
 4. Train the model: `python src/model.py`.
 5. Validate the model: `python src/validate_model.py`.
-6. Run the test suite: `python -m unittest discover tests`.
+6. Run the test suite: `pytest tests/`.
 
 ## Automated Workflows
 
