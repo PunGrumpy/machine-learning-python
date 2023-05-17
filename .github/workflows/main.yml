@@ -58,7 +58,6 @@ jobs:
           webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
           embed-title: 'Model training successful'
           embed-description: 'Model training was successful'
-          embed-color: '#00ff00'
           embed-timestamp: true
           embed-fields: |
             {
