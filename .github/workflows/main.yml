@@ -58,7 +58,6 @@ jobs:
           webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
           embed-title: 'Model training successful'
           embed-description: '**Model training was successful and the model was saved as an artifact. ✨**'
-          embed-color: '00ff00'
           embed-image-url: 'https://www.appventurez.com/wp-content/uploads/2021/12/Machine-Learning-Can-Do-Wonders-To-Your-Supply-Chain-Business-2.jpg'
           embed-timestamp: ${{ github.event.head_commit.timestamp }}
           filename: models/model.pkl
