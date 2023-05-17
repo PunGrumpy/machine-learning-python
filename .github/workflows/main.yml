@@ -46,7 +46,7 @@ jobs:
         with:
           name: model
           path: models/model.pkl
-      - name: Notify
+      - name: Create Issue on Failure
         if: failure()
         uses: JasonEtco/create-an-issue@v2
         env:
@@ -57,11 +57,10 @@ jobs:
         with:
           webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
           embed-title: 'Model training successful'
-          embed-description: 'Model training was successful'
+          embed-description: 'Model training was successful and the model was saved as an artifact. ✨'
+          embed-color: '0x00ff00'
+          embed-image-url: https://www.nicepng.com/png/detail/314-3142743_machine-learning-sticker-machine-learning-logo-png.png
           embed-timestamp: ${{ github.event.head_commit.timestamp }}
           filename: models/model.pkl
-          embed-footer-text: |
-            {
-              "text": "Model training - by @PunGrumpy"
-            }
+          embed-footer-text: Model training by Python and GitHub Actions
           embed-footer-icon-url: https://avatars.githubusercontent.com/u/108584943?v=4
