@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 from sklearn.datasets import load_diabetes
 from sklearn.model_selection import train_test_split
 import os
@@ -19,8 +20,17 @@ def create_dataset():
     save_numpy_array(y_test, "data_raw/y_test.npy")
 
 
+def create_csv_dataset():
+    df = pd.DataFrame(
+        data=np.random.rand(100, 5),
+        columns=["Feature1", "Feature2", "Feature3", "Feature4", "Target"],
+    )
+    df.to_csv("data_raw/raw_data.csv", index=False)
+
+
 def main():
     create_dataset()
+    create_csv_dataset()
 
 
 if __name__ == "__main__":
