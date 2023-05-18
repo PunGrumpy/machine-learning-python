@@ -29,9 +29,6 @@ jobs:
       - name: Create Dataset
         run: |
           python src/data/create_dataset.py
-      - name: Create raw data
-        run: |
-          python src/data/prepare_data.py
       - name: Validate data
         run: |
           python src/data/validate_data.py
